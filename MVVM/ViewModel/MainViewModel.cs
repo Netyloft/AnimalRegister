@@ -8,12 +8,12 @@ namespace AnimalRegister
     {
         public ObservableCollection<MessageModel> Messages { get; set; }
         public ObservableCollection<ContactModel> Contacts { get; set; }
-        
+
         public MainViewModel()
         {
             Messages = new ObservableCollection<MessageModel>();
             Contacts = new ObservableCollection<ContactModel>();
-            
+
             Messages.Add(new MessageModel
             {
                 Username = "Олег",
@@ -25,15 +25,20 @@ namespace AnimalRegister
                 FirstMessage = true
             });
 
-            for (int i = 0; i < 5; i++)
+            Contacts.Add(new ContactModel
             {
-                Contacts.Add(new ContactModel
-                {
-                    Username = "Олег",
-                    ImageSource = "https://i.imgur.com/yMWvLXd.png",
-                    Messages = Messages
-                });
-            }
+                Username = "Добавить",
+            });
+            
+            Contacts.Add(new ContactModel
+            {
+                Username = "Обновить",
+            });
+            
+            Contacts.Add(new ContactModel
+            {
+                Username = "Удалить",
+            });
         }
     }
 }

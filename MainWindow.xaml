@@ -78,7 +78,7 @@
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
             
-            <Label Content="Contacts"
+            <Label Content="Действия"
                    VerticalAlignment="Center"
                    FontWeight="Medium"
                    Foreground="Gray"
