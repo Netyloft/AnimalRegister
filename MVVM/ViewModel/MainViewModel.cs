@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.ObjectModel;
 using AnimalRegister.MVVM.Model;
 
@@ -38,7 +39,10 @@ namespace AnimalRegister
             Contacts.Add(new ContactModel
             {
                 Username = "Удалить",
+                
             });
         }
+        
+        
     }
 }
