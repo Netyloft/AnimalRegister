@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:animalRegister="clr-namespace:AnimalRegister"
+        xmlns:collections="clr-namespace:System.Collections;assembly=System.Runtime"
+        xmlns:model="clr-namespace:AnimalRegister.MVVM.Model"
 
         mc:Ignorable="d"
         Height="650" Width="1200"
@@ -11,6 +13,16 @@
         WindowStyle="None"
         AllowsTransparency="True"
         ResizeMode="CanResizeWithGrip">
+    
+    <Window.Resources>
+        <Style x:Key="HeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="#4e5259" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
     
     <Window.DataContext>
         <animalRegister:MainViewModel/>
@@ -116,6 +128,21 @@
             
         </Grid>
         
+        <Grid Grid.Row="1" Grid.Column="1">
+            <DataGrid x:Name="animalsGrid" ColumnHeaderStyle="{StaticResource HeaderStyle}" AutoGenerateColumns="False"  RowBackground="#4e5259" Background="#36393F" Foreground="#d5dae3" ColumnWidth="*" CanUserAddRows="False" CanUserResizeRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" BorderThickness="0,0,0,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Дата отлова" Binding="{Binding DateCapture}" />
+                    <DataGridTextColumn Header="Муниципальное образование" Binding="{Binding Municipality}" />
+                    <DataGridTextColumn Header="Населённый пункт" Binding="{Binding Locality}" />
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Status}" />
+                    
+                </DataGrid.Columns>
+                
+            </DataGrid>
+        </Grid>
         
     </Grid>
+    
+
 </Window>

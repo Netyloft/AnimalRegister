@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dLaQ49V0+DneymsGLeG0tkyeoei3acmP+iw6JBB7N3AKZIjYsfPhi74NCqZJ76610qp5JTpHx3KdDqRmEGjEkQ==",
+  "dgSpecHash": "1G9wrgAXWm3q1EmZ6Brd2p0vg+vWCFWmQwm1XQgDBXEq8zAL5TZFTjje6+B0GCn0iMnmQg83K80dU7sRDzvbag==",
   "success": true,
-  "projectFilePath": "E:\\Code\\C#\\Anim\\AnimalRegister.csproj",
+  "projectFilePath": "D:\\Code\\C#\\AnimalRegister\\AnimalRegister\\AnimalRegister.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
