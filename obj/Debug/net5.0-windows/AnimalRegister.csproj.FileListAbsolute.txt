@@ -50,3 +50,5 @@ D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\AnimalRegister
 D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\AnimalRegister.genruntimeconfig.cache
 D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\PasswordWindow.g.cs
 D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\PasswordWindow.baml
+D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\Card.g.cs
+D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\Card.baml

@@ -1,22 +1,28 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace AnimalRegister
 {
-    public partial class PasswordWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для Card.xaml
+    /// </summary>
+    public partial class Card : Window
     {
-        public PasswordWindow()
+        public Card()
         {
             InitializeComponent();
-            
-            Button.Click += Button_Click;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var mainWindow = new MainWindow();
-            Close();
-            mainWindow.Show();
         }
         
         private void BorderMouseDown(object sender, MouseButtonEventArgs e)

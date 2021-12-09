@@ -12,10 +12,10 @@ namespace AnimalRegister
         {
             InitializeComponent();
             
-            var animals = new List<Animal>();
-            animals.Add(new Animal() {Name = "Дима", Locality = "Тюмень", Municipality = "Тюмень", Status = "Статус", DateCapture = "День", DateStatus = "Два"});
-            animals.Add(new Animal() {Name = "Дима", Locality = "Тюмень", Municipality = "Тюмень", Status = "Статус", DateCapture = "День", DateStatus = "Два"});
-            animals.Add(new Animal() {Name = "Дима", Locality = "Тюмень", Municipality = "Тюмень", Status = "Статус", DateCapture = "День", DateStatus = "Два"});
+            var animals = new List<AnimalCard>();
+            animals.Add(new AnimalCard() {Name = "Дима", Locality = "Тюмень", Municipality = "Тюмень", MK = 5, Status = "Статус", Catch = DateTime.Now, StatusDate = DateTime.Now});
+            animals.Add(new AnimalCard() {Name = "Дима", Locality = "Тюмень", Municipality = "Тюмень", MK = 6, Status = "Статус", Catch = DateTime.Now, StatusDate = DateTime.Now});
+            animals.Add(new AnimalCard() {Name = "Пепега", Locality = "Тюмень", Municipality = "Тюмень", MK = 11, Status = "Статус", Catch = DateTime.Now, StatusDate = DateTime.Now});
 
 
             animalsGrid.ItemsSource = animals;

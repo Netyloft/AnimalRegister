@@ -1,0 +1,300 @@
+﻿<Window x:Class="AnimalRegister.Card"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:AnimalRegister"
+        mc:Ignorable="d"
+        Height="800" Width="500"
+        Background="#36393F"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+
+        <Border Grid.ColumnSpan="2"
+                Background="#252525"
+                MouseDown="BorderMouseDown">
+
+            <Grid HorizontalAlignment="Stretch">
+
+                <Label Content="Карточка №"
+                       Foreground="Gray"
+                       FontWeight="SemiBold" />
+
+                <StackPanel HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                    <Button Width="20" Height="20"
+                            Content="_"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="Gray"
+                            FontWeight="Bold"
+                            Margin="0,0,0,3"
+                            Click="ButtonMinimizeClick" />
+
+                    <Button Width="20" Height="20"
+                            Content="✕"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="Gray"
+                            FontWeight="Bold"
+                            Click="CloseButtonClick" />
+
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1" Margin="30">
+            <StackPanel Orientation="Vertical">
+                <Border  Margin="8" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="210"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        
+                        <Border Grid.Column="0" Background="#FF4E5259" CornerRadius="8">
+                            <Label Content="Посмотреть МК"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                        </Border>
+                        
+                        <Border Grid.Column="2" Background="#FF62C23E" CornerRadius="8">
+                            <Label Content="Сохранить"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                        </Border>
+
+                        
+                    </Grid>
+                </Border>
+                
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="№ МК"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Text="11" Foreground="White" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+                
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Животное"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Text="Единорог" Foreground="White" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+                
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Имя"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Text="Пепега" Foreground="White" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Пол"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Женский" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+
+                </Border>
+
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Размер"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Крупный" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+                
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Шерсть"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Кучерявый" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+                
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Муниципальное образование"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Тюменская" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Населённый пункт"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Тюмень" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Статус"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Статус" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Дата установки статуса"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="21.01.2021" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
+
+<!-- #FF62C23E -->

@@ -129,10 +129,11 @@
         </Grid>
         
         <Grid Grid.Row="1" Grid.Column="1">
-            <DataGrid x:Name="animalsGrid" ColumnHeaderStyle="{StaticResource HeaderStyle}" AutoGenerateColumns="False"  RowBackground="#4e5259" Background="#36393F" Foreground="#d5dae3" ColumnWidth="*" CanUserAddRows="False" CanUserResizeRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" BorderThickness="0,0,0,0">
+            <DataGrid x:Name="animalsGrid" ColumnHeaderStyle="{StaticResource HeaderStyle}" AutoGenerateColumns="False"  RowBackground="#4e5259" Background="#36393F" Foreground="#d5dae3" ColumnWidth="*" CanUserAddRows="False" CanUserResizeRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" BorderThickness="0,0,0,0" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="Дата отлова" Binding="{Binding DateCapture}" />
+                    <DataGridTextColumn Header="№ МК" Binding="{Binding MK}" />
+                    <DataGridTextColumn Header="Дата отлова" Binding="{Binding Catch}" />
                     <DataGridTextColumn Header="Муниципальное образование" Binding="{Binding Municipality}" />
                     <DataGridTextColumn Header="Населённый пункт" Binding="{Binding Locality}" />
                     <DataGridTextColumn Header="Статус" Binding="{Binding Status}" />

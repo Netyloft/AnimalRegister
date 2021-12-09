@@ -33,7 +33,7 @@ namespace AnimalRegister
             
             Contacts.Add(new ContactModel
             {
-                Username = "Обновить",
+                Username = "Изменить",
             });
             
             Contacts.Add(new ContactModel
