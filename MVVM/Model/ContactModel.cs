@@ -3,6 +3,8 @@ using System.Linq;
 
 namespace AnimalRegister.MVVM.Model
 {
+    //todo Эти файлы в проекте не учавствуют, но трогать их пока не надо
+
     public class ContactModel
     {
         public string Username { get; set; }

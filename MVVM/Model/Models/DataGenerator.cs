@@ -4,12 +4,12 @@ namespace AnimalRegister.MVVM.Model
 {
     public static class DataGenerator
     {
-        public static Dictionary<string, string> GenerateLoginDataModel() =>
+        public static Dictionary<string, string> GenerateLoginDataModel(string name = null, string login = null, string password = null) =>
             new Dictionary<string, string>
             {
-                {"name", null},
-                {"login", null},
-                {"password", null},
+                {"name", name},
+                {"login", login},
+                {"password", password},
                 {"rights", null}, //todo Это поле возможно не нужно
                 {"validationStatus", null},
                 {"message", null}
