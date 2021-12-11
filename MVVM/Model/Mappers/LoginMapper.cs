@@ -11,12 +11,7 @@ namespace AnimalRegister.MVVM.Model.Mappers
         
         public static Dictionary<string, string> GetResult(User user)
         {
-            var result = new Dictionary<string, string>
-            {
-                {"name", user.Name}, {"login", user.Login}, {"password", user.Password}
-            };
-
-            return result;
+            return DataGenerator.GenerateLoginDataModel(user.Name, user.Login, user.Password);
         }
     }
 }
