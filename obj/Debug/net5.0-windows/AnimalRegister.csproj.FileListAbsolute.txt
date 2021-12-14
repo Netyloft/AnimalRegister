@@ -52,3 +52,16 @@ D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\PasswordWindow
 D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\PasswordWindow.baml
 D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\Card.g.cs
 D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\Card.baml
+D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\AnimalRegister.csproj.CopyComplete
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\Iesi.Collections.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\NHibernate.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\Antlr3.Runtime.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\Remotion.Linq.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\Remotion.Linq.EagerFetching.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\FluentNHibernate.dll

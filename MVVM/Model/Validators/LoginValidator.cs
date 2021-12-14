@@ -8,7 +8,7 @@ namespace AnimalRegister.MVVM.Model.Validators
         public static Dictionary<string, string> Validate(Dictionary<string, string> data)
         {
             
-            data.Add("validationStatus", "Valid");
+            data["validationStatus"] = "Valid";
 
             return data;
         }

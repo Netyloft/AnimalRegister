@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using AnimalRegister.MVVM.Model.Repositories;
 
 namespace AnimalRegister.MVVM.Model.Controllers
 {
     public class AnimalCardService
     {
+        private readonly AnimalRepository _animalRepository = new AnimalRepository();
         public List<Dictionary<string, string>> GeAnimalCards(string[] filters, string sort)
         {
             throw new NotImplementedException();
@@ -15,9 +17,9 @@ namespace AnimalRegister.MVVM.Model.Controllers
             throw new NotImplementedException();
         }
 
-        public void AddAnimalCard(Dictionary<string, string> card)
+        public void AddAnimalCard(AnimalCard card)
         {
-            throw new NotImplementedException();
+            _animalRepository.CreateOrUpdate(card);
         }
 
         public void ChangeAnimalCard(Dictionary<string, string> card)

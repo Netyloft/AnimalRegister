@@ -1,39 +1,38 @@
 ﻿using AnimalRegister.MVVM.Model.Mappers;
+using AnimalRegister.MVVM.Model.NHibernate;
+using NHibernate;
 
 namespace AnimalRegister.MVVM.Model.Repositories
 {
     class ScheduleRepository
     {
-        private readonly ScheduleCardEntityMapper _scheduleCardEntityMapper = new ScheduleCardEntityMapper();
-        //todo Реализовать SheduleRepository
-        public ScheduleCard GetId(long id)
+        //todo реализовать выгрузку списка с фильтрами
+        // public List<ScheduleCard> GetCards(string sort, string filters)
+        // {
+        //
+        // }
+
+        public ScheduleCard Get(long id)
         {
-   
+            using ISession session = NHibernateHelper.OpenSession();
+            return session.QueryOver<ScheduleCard>().Where(x => x.Id == id).SingleOrDefault();
         }
 
-        public List<ScheduleCard> GetCards(string sort, string filters)
-        {
 
+        public void CreateOrUpdate(ScheduleCard animalCard)
+        {
+            using ISession session = NHibernateHelper.OpenSession();
+            using ITransaction transaction = session.BeginTransaction();
+            session.SaveOrUpdate(animalCard);
+            transaction.Commit();
         }
 
-        public void Create(ScheduleCard scheduleCard)
+        public void Delete(ScheduleCard animalCard)
         {
-
-        }
-
-        public void Update(ScheduleCard scheduleCard)
-        {
-
-        }
-
-        public void Delete(long id)
-        {
-
-        }
-
-        public void AddFile(File file, long id)
-        {
-
+            using ISession session = NHibernateHelper.OpenSession();
+            using ITransaction transaction = session.BeginTransaction();
+            session.Delete(animalCard);
+            transaction.Commit();
         }
     }
 }

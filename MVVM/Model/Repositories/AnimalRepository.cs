@@ -1,38 +1,39 @@
-﻿using AnimalRegister.MVVM.Model.Mappers;
+﻿using System.Collections.Generic;
+using AnimalRegister.MVVM.Model.Mappers;
+using AnimalRegister.MVVM.Model.NHibernate;
+using NHibernate;
 
 namespace AnimalRegister.MVVM.Model.Repositories
 {
     class AnimalRepository
     {
-        private readonly AnimalCardEntityMapper _animalCardEntityMapper = new AnimalCardEntityMapper();
-        //todo Реализовать Animal репозиторий
-        public AnimalCard GetId(long id)
-        {
+        //todo реализовать выгрузку списка с фильтрами
+        // public List<AnimalCard> GetCards(string sort, string filters)
+        // {
+        //
+        // }
 
+        public AnimalCard Get(long id)
+        {
+            using ISession session = NHibernateHelper.OpenSession();
+            return  session.QueryOver<AnimalCard>().Where(x => x.Id == id).SingleOrDefault();
+        }
+        
+
+        public void CreateOrUpdate(AnimalCard animalCard)
+        {
+            using ISession session = NHibernateHelper.OpenSession();
+            using ITransaction transaction = session.BeginTransaction();
+            session.SaveOrUpdate(animalCard);
+            transaction.Commit();
         }
 
-        public List<AnimalCard> GetCards(string sort, string filters)
+        public void Delete(AnimalCard animalCard)
         {
-
-        }
-
-        public void Create(AnimalCard animalCard)
-        {
-
-        }
-
-        public void Update(AnimalCard animalCard)
-        {
-
-        }
-
-        public void Delete(long id)
-        {
-
-        }
-
-        public void AddFile(File file, long id)
-        {
+            using ISession session = NHibernateHelper.OpenSession();
+            using ITransaction transaction = session.BeginTransaction();
+            session.Delete(animalCard);
+            transaction.Commit();
 
         }
     }
