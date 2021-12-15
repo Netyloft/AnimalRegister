@@ -7,6 +7,7 @@ namespace AnimalRegister.MVVM.Model.Controllers
     public class AnimalCardService
     {
         private readonly AnimalRepository _animalRepository = new AnimalRepository();
+        private readonly LogRepository _logRepository = new LogRepository();
         
         public List<AnimalCard> GetAllAnimalCards()
         {
