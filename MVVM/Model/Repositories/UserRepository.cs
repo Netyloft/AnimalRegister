@@ -11,25 +11,19 @@ namespace AnimalRegister.MVVM.Model.Repositories
         //todo Реализовать репозиторий
         public User GetUser(User user)
         {
-            using (ISession session = NHibernateHelper.OpenSession())
-            {
-                var res = session.QueryOver<User>().Where(x => x.Login == user.Login && x.Password == user.Password)
-                    .SingleOrDefault();
+            using ISession session = NHibernateHelper.OpenSession();
+            var res = session.QueryOver<User>().Where(x => x.Login == user.Login && x.Password == user.Password)
+                .SingleOrDefault();
 
-                return res ?? user;
-            }
+            return res ?? user;
         }
 
         public void CreateOrUpdate(User user)
         {
-            using (ISession session = NHibernateHelper.OpenSession())
-            {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
-                    session.SaveOrUpdate(user);
-                    transaction.Commit();
-                }
-            }
+            using ISession session = NHibernateHelper.OpenSession();
+            using ITransaction transaction = session.BeginTransaction();
+            session.SaveOrUpdate(user);
+            transaction.Commit();
         }
         
         public void Delete(User user)

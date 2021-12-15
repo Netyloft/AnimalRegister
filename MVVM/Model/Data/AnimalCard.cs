@@ -23,5 +23,7 @@ namespace AnimalRegister.MVVM.Model
         public virtual string Executor{ get; set; }
         public virtual DateTime Conclusion{ get; set; }
         public virtual DateTime Validity{ get; set; }
+        
+        public virtual long MCNumber { get; set; }//
     }
 }

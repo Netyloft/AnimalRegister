@@ -20,40 +20,8 @@ namespace AnimalRegister
         public PasswordWindow()
         {
             InitializeComponent();
-
-            Connect();
+            
             Button.Click += Button_Click;
-        }
-
-        static void Connect()
-        {
-            AnimalCard hui = new AnimalCard()
-            {
-                Id = 1,
-                Name = "Собака",
-                Category = "Собака",
-                Conclusion = DateTime.Now,
-                DateOfCatch = DateTime.Now,
-                Executor = "Slave",
-                Gender = "Тазие",
-                Locality = "Татарстан",
-                MunicipalityId = new Municipalities(){Id = 1},
-                OrganizationId = new Organization(){Id = 1},
-                TypeOfWool = "Крыса",
-                Status = "В активном поиске",
-                Size = "Cock",
-                StatusDate = DateTime.Now,
-                Validity = DateTime.Now
-            };
-            
-            AnimalRepository repository = new AnimalRepository();
-            //userRepository.CreateOrUpdate(hui);
-            
-            //User hui = new User() {Login = "Hui", Password = "1234"};
-
-            repository.Delete(hui);
-            // var rf = userRepository;
-            
             
         }
 
@@ -63,8 +31,14 @@ namespace AnimalRegister
             var password = Password.Text;
             var data = DataGenerator.GenerateLoginDataModel(login:login, password:password);
 
-            var controller = new LoginController().Login(data);
-            
+            var result = new LoginController().Login(data);
+
+            if (result["name"] == null)
+            {
+                MessageBox.Show("Пользователь с такими данными не зарегистрирован");
+                return;
+            }
+                
             var mainWindow = new MainWindow();
             Close();
             mainWindow.Show();

@@ -19,6 +19,7 @@ namespace AnimalRegister.MVVM.Model
             Map(x => x.Executor).Column("Executor");
             Map(x => x.Conclusion).Column("Conclusion");
             Map(x => x.Validity).Column("Validity");
+            Map(x => x.MCNumber).Column("MCNumber");
             References(x => x.MunicipalityId).Column("MunicipalityId").Fetch.Join();
             References(x => x.OrganizationId).Column("OrganizationId").Fetch.Join();
             Table("AnimalCard");

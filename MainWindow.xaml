@@ -129,7 +129,7 @@
         </Grid>
         
         <Grid Grid.Row="1" Grid.Column="1">
-            <DataGrid x:Name="animalsGrid" ColumnHeaderStyle="{StaticResource HeaderStyle}" AutoGenerateColumns="False"  RowBackground="#4e5259" Background="#36393F" Foreground="#d5dae3" ColumnWidth="*" CanUserAddRows="False" CanUserResizeRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" BorderThickness="0,0,0,0" IsReadOnly="True">
+            <DataGrid x:Name="animalsGrid" ColumnHeaderStyle="{StaticResource HeaderStyle}" AutoGenerateColumns="False"  RowBackground="#4e5259" Background="#36393F" Foreground="#d5dae3" ColumnWidth="*" CanUserAddRows="False" CanUserResizeRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" BorderThickness="0,0,0,0" IsReadOnly="True" SelectionChanged="animalsGrid_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Name}" />
                     <DataGridTextColumn Header="№ МК" Binding="{Binding MK}" />

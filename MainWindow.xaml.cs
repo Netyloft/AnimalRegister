@@ -2,53 +2,50 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
-using AnimalRegister.MVVM.Model;
+using AnimalRegister.MVVM.Model.Controllers;
 
 namespace AnimalRegister
 {
     public partial class MainWindow : Window
     {
+        private readonly List<long> animalCardIds = new List<long>();
+
         public MainWindow()
         {
             InitializeComponent();
-            
-            // var animals = new List<AnimalCard>();
-            // animals.Add(new AnimalCard() {Name = "Дима", Locality = "Тюмень", MunicipalityId = 5, MK = 5, Status = "Статус", Catch = DateTime.Now, StatusDate = DateTime.Now});
-            // animals.Add(new AnimalCard() {Name = "Дима", Locality = "Тюмень", Municipality = "Тюмень", MK = 6, Status = "Статус", Catch = DateTime.Now, StatusDate = DateTime.Now});
-            // animals.Add(new AnimalCard() {Name = "Пепега", Locality = "Тюмень", Municipality = "Тюмень", MK = 11, Status = "Статус", Catch = DateTime.Now, StatusDate = DateTime.Now});
 
+            var animals = new AnimalCardController().GetAllAnimalCards();
+            foreach (var animalCardModel in animals)
+            {
+                animalCardIds.Add(animalCardModel.Id);
+            }
 
-            // animalsGrid.ItemsSource = animals;
+            animalsGrid.ItemsSource = animals;
         }
-        
+
         private void BorderMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed) DragMove();
+            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
 
         private void ButtonMinimizeClick(object sender, RoutedEventArgs e) =>
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
-        
+
 
         private void WindowStateButtonClick(object sender, RoutedEventArgs e) =>
-            Application.Current.MainWindow.WindowState = Application.Current.MainWindow.WindowState != WindowState.Maximized ? WindowState.Maximized : WindowState.Normal;
-        
+            Application.Current.MainWindow.WindowState =
+                Application.Current.MainWindow.WindowState != WindowState.Maximized
+                    ? WindowState.Maximized
+                    : WindowState.Normal;
+
 
         private void CloseButtonClick(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
-        private void ListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+
+        private void animalsGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-
-        }
-
-        private void phonesGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void ListView_SelectionChanged_1(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-
+            var card = new Card(animalCardIds[animalsGrid.SelectedIndex]);
+            card.Show();
         }
     }
 }

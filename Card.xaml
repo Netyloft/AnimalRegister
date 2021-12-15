@@ -10,6 +10,63 @@
         WindowStyle="None"
         AllowsTransparency="True"
         ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FF62C23E"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF62C23E"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FF62C23E"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF62C23E"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FF62C23E"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF62C23E"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FF62C23E"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF62C23E"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF62C23E"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -71,9 +128,13 @@
                         </Border>
                         
                         <Border Grid.Column="2" Background="#FF62C23E" CornerRadius="8">
-                            <Label Content="Сохранить"
+                            <Button Style="{DynamicResource ButtonStyle1}" Grid.Column="2"
+                                   BorderThickness="0"
+                                   Content="Сохранить"
+                                   Background="#FF62C23E"
                                    Foreground="White"
                                    FontWeight="SemiBold"
+                                   Width="90"
                                    HorizontalAlignment="Center"/>
                         </Border>
 
@@ -96,7 +157,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Text="11" Foreground="White" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="MK" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>
@@ -117,7 +178,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Text="Единорог" Foreground="White" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="Category" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>
@@ -138,7 +199,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Text="Пепега" Foreground="White" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="Name" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>
@@ -160,7 +221,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Женский" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="Gender" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>
@@ -182,7 +243,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Крупный" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="Size" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>
@@ -203,7 +264,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Кучерявый" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="TypeOfWool" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>
@@ -224,7 +285,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Тюменская" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="Municipality" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>
@@ -245,7 +306,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Тюмень" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="Locality" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>
@@ -266,7 +327,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="Статус" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="Status" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>
@@ -287,7 +348,7 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox Margin="5" Background="#4e5259" Foreground="White" Text="21.01.2021" BorderBrush="#FF96A0B2" />
+                            <TextBox x:Name="StatusDate" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
                         </Border>
 
                     </Grid>

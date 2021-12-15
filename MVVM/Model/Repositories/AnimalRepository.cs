@@ -13,6 +13,13 @@ namespace AnimalRegister.MVVM.Model.Repositories
         //
         // }
 
+        public List<AnimalCard> GetAll()
+        {
+            using ISession session = NHibernateHelper.OpenSession();
+            var rr = new List<AnimalCard>(session.CreateCriteria(typeof(AnimalCard)).List<AnimalCard>());
+            return rr;
+        }
+        
         public AnimalCard Get(long id)
         {
             using ISession session = NHibernateHelper.OpenSession();

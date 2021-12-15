@@ -1,33 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using AnimalRegister.MVVM.Model.Mappers.ModelMappers;
 
 namespace AnimalRegister.MVVM.Model.Controllers
 {
     public class AnimalCardController
     {
-        public List<Dictionary<string, string>> GeAnimalCards(string[] filters, string sort)
+        private readonly AnimalCardService _animalCardService = new AnimalCardService();
+
+        public IEnumerable<AnimalCardModel> GetAllAnimalCards()
         {
-            throw new NotImplementedException();
+            return AnimalCardModelMapper.ToModel(_animalCardService.GetAllAnimalCards());
+        }
+        
+        // public List<Dictionary<string, string>> GetAnimalCards(string[] filters, string sort)
+        // {
+        //     return _animalCardService.GetAnimalCards(filters, sort);
+        // }
+
+        public AnimalCard OpenAnimalCard(long id)
+        {
+            return _animalCardService.OpenAnimalCard(id);
         }
 
-        public Dictionary<string, string> OpenAnimalCard(long id)
+        public void AddAnimalCard(AnimalCard card)
         {
-            throw new NotImplementedException();
+            _animalCardService.AddAnimalCard(card);
         }
 
-        public void AddAnimalCard(Dictionary<string, string> card)
+        public void ChangeAnimalCard(AnimalCard card)
         {
-            throw new NotImplementedException();
+            _animalCardService.AddAnimalCard(card);
         }
 
-        public void ChangeAnimalCard(Dictionary<string, string> card)
+        public void RemoveAnimalCard(AnimalCard card)
         {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveAnimalCard(long id)
-        {
-            throw new NotImplementedException();
+            _animalCardService.RemoveAnimalCard(card);
         }
     }
 }

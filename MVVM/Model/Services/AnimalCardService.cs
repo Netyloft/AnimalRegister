@@ -7,14 +7,20 @@ namespace AnimalRegister.MVVM.Model.Controllers
     public class AnimalCardService
     {
         private readonly AnimalRepository _animalRepository = new AnimalRepository();
-        public List<Dictionary<string, string>> GeAnimalCards(string[] filters, string sort)
+        
+        public List<AnimalCard> GetAllAnimalCards()
+        {
+            return _animalRepository.GetAll();
+        }
+        
+        public List<AnimalCard> GetAnimalCards(string[] filters, string sort)
         {
             throw new NotImplementedException();
         }
 
-        public Dictionary<string, string> OpenAnimalCard(long id)
+        public AnimalCard OpenAnimalCard(long id)
         {
-            throw new NotImplementedException();
+            return _animalRepository.Get(id);
         }
 
         public void AddAnimalCard(AnimalCard card)
@@ -22,14 +28,14 @@ namespace AnimalRegister.MVVM.Model.Controllers
             _animalRepository.CreateOrUpdate(card);
         }
 
-        public void ChangeAnimalCard(Dictionary<string, string> card)
+        public void ChangeAnimalCard(AnimalCard card)
         {
-            throw new NotImplementedException();
+            _animalRepository.CreateOrUpdate(card);
         }
 
-        public void RemoveAnimalCard(long id)
+        public void RemoveAnimalCard(AnimalCard card)
         {
-            throw new NotImplementedException();
+            _animalRepository.Delete(card);
         }
     }
 }
