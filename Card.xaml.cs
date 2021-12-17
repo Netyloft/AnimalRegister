@@ -92,7 +92,7 @@ namespace AnimalRegister
             _animalCard.Gender = Gender.Text;
             _animalCard.Size = Size.Text;
             _animalCard.TypeOfWool = TypeOfWool.Text;
-            0.3232_animalCard.MunicipalityId.Name = Municipality.Text;
+            _animalCard.MunicipalityId.Name = Municipality.Text;
             _animalCard.MunicipalityId.LocalGovernment = LocalGovernment.Text;
             _animalCard.Locality = Locality.Text;
             _animalCard.Status = Status.Text;
