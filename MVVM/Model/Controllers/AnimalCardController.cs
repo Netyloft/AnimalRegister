@@ -12,7 +12,7 @@ namespace AnimalRegister.MVVM.Model.Controllers
         {
             return AnimalCardModelMapper.ToModel(_animalCardService.GetAllAnimalCards());
         }
-        
+
         // public List<Dictionary<string, string>> GetAnimalCards(string[] filters, string sort)
         // {
         //     return _animalCardService.GetAnimalCards(filters, sort);
@@ -24,11 +24,6 @@ namespace AnimalRegister.MVVM.Model.Controllers
         }
 
         public void AddAnimalCard(AnimalCard card)
-        {
-            _animalCardService.AddAnimalCard(card);
-        }
-
-        public void ChangeAnimalCard(AnimalCard card)
         {
             _animalCardService.AddAnimalCard(card);
         }

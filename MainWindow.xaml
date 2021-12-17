@@ -96,11 +96,16 @@
                    Foreground="Gray"
                    Margin="8,0,0,0"/>
             
-            <ListView ItemsSource="{Binding Contacts}"
+            <!--<ListView ItemsSource="{Binding Contacts}"
                       Background="Transparent"
                       BorderThickness="0"
                       Grid.Row="1"
-                      ItemContainerStyle="{StaticResource ContactCard}"/>
+                      ItemContainerStyle="{StaticResource ContactCard}"/>-->
+
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <Button Height="60" Content="Добавить" Click="Button_Click"/>
+                <Button Height="60" Content="Удалить"/>
+            </StackPanel>
             
             <StackPanel Grid.Row="2" 
                         Orientation="Horizontal" 

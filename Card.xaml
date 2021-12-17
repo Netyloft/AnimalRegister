@@ -121,10 +121,10 @@
 
                         
                         <Border Grid.Column="0" Background="#FF4E5259" CornerRadius="8">
-                            <Label Content="Посмотреть МК"
+                            <Button Content="Удалить"
                                    Foreground="White"
                                    FontWeight="SemiBold"
-                                   HorizontalAlignment="Center"/>
+                                   HorizontalAlignment="Center" Click="Button_Click_2"/>
                         </Border>
                         
                         <Border Grid.Column="2" Background="#FF62C23E" CornerRadius="8">
@@ -135,14 +135,15 @@
                                    Foreground="White"
                                    FontWeight="SemiBold"
                                    Width="90"
-                                   HorizontalAlignment="Center"/>
+                                    Height="26"
+                                   HorizontalAlignment="Center" Click="Button_Click"/>
                         </Border>
 
                         
                     </Grid>
                 </Border>
-                
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
@@ -162,8 +163,8 @@
 
                     </Grid>
                 </Border>
-                
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
@@ -183,8 +184,8 @@
 
                     </Grid>
                 </Border>
-                
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
@@ -205,7 +206,7 @@
                     </Grid>
                 </Border>
 
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
 
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -228,7 +229,7 @@
 
                 </Border>
 
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
@@ -248,8 +249,8 @@
 
                     </Grid>
                 </Border>
-                
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
@@ -269,8 +270,8 @@
 
                     </Grid>
                 </Border>
-                
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
@@ -291,7 +292,28 @@
                     </Grid>
                 </Border>
 
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="ОМСУ"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox x:Name="LocalGovernment" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
@@ -312,7 +334,112 @@
                     </Grid>
                 </Border>
 
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Дата отлова"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox x:Name="DateOfCatch" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Организация"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox x:Name="Organization" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Исполнитель"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox x:Name="Executor" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Дата заключения"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox x:Name="Conclusion" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Срок действия"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,10,0" />
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <TextBox x:Name="Validity" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
@@ -333,7 +460,7 @@
                     </Grid>
                 </Border>
 
-                <Border Background="#4e5259" Margin="8" CornerRadius="8">
+                <Border Background="#4e5259" Margin="8,4,8,4" CornerRadius="8">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />

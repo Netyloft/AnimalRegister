@@ -14,6 +14,11 @@ namespace AnimalRegister
         {
             InitializeComponent();
 
+            UpdateDataGrid();
+        }
+
+        private void UpdateDataGrid()
+        {
             var animals = new AnimalCardController().GetAllAnimalCards();
             foreach (var animalCardModel in animals)
             {
@@ -22,7 +27,7 @@ namespace AnimalRegister
 
             animalsGrid.ItemsSource = animals;
         }
-
+        
         private void BorderMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
@@ -44,8 +49,19 @@ namespace AnimalRegister
 
         private void animalsGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            var card = new Card(animalCardIds[animalsGrid.SelectedIndex]);
-            card.Show();
+            if (animalsGrid.SelectedIndex >= 0)
+            {
+                var card = new Card(false, animalCardIds[animalsGrid.SelectedIndex]);
+                card.ShowDialog();
+                UpdateDataGrid();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var card = new Card(true);
+            card.ShowDialog();
+            UpdateDataGrid();
         }
     }
 }

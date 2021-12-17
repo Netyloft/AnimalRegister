@@ -16,42 +16,44 @@ namespace AnimalRegister.MVVM.Model
                 {"message", null}
             };
         
-        // public static Dictionary<string, string> GenerateAnimalDataModel(
-        //     string name = null,
-        //     DateTime dateCatch = null,
-        //     string municipality = null,
-        //     string locality = null,
-        //     string category = null,
-        //     string gender = null,
-        //     string wool = null,
-        //     string size = null,
-        //     string mk = null,
-        //     DateTime conclusion = null,
-        //     DateTime validity = null,
-        //     DateTime statusDate = null,
-        //     string executor = null,
-        //     string status = null,
-        //     string localGoverment = null) =>
-        //     new Dictionary<string, string>
-        //     {
-        //         {"name", name},
-        //         {"dateCatch", dateCatch},
-        //         {"municipality", municipality},
-        //         {"locality", locality},
-        //         {"category", category},
-        //         {"gender", gender},
-        //         {"wool", wool},
-        //         {"size", size},
-        //         {"mk", mk},
-        //         {"conclusion", conclusion},
-        //         {"validity", validity},
-        //         {"executor", executor},
-        //         {"localGovernment", localGoverment},
-        //         {"status", status},
-        //         {"statusDate", statusDate},
-        //         {"validationStatus", null},
-        //         {"message", null}
-        //     };
+        public static Dictionary<string, string> GenerateAnimalDataModel(
+            string id,
+            string name = null,
+            DateTime dateCatch = default,
+            string municipality = null,
+            string locality = null,
+            string category = null,
+            string gender = null,
+            string wool = null,
+            string size = null,
+            string mk = null,
+            DateTime conclusion = default,
+            DateTime validity = default,
+            DateTime statusDate = default,
+            string executor = null,
+            string status = null,
+            string localGovernment = null) =>
+            new Dictionary<string, string>
+            {
+                {"Id", id},
+                {"Name", name},
+                {"DateOfCatch", dateCatch.ToString()},
+                {"Municipality", municipality},
+                {"Locality", locality},
+                {"Category", category},
+                {"Gender", gender},
+                {"TypeOfWool", wool},
+                {"Size", size},
+                {"MK", mk},
+                {"Conclusion", conclusion.ToString()},
+                {"Validity", validity.ToString()},
+                {"Executor", executor},
+                {"LocalGovernment", localGovernment},
+                {"Status", status},
+                {"StatusDate", statusDate.ToString()},
+                {"validationStatus", null},
+                {"message", null}
+            };
         //
         //     public static Dictionary<string, string> GenerateScheduleDataModel(
         //         DateTime date = null,

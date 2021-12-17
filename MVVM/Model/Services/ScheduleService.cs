@@ -19,7 +19,7 @@ namespace AnimalRegister.MVVM.Model.Controllers
             return _scheduleRepository.Get(id);
         }
 
-        public void AddScheduleCard(ScheduleCard scheduleCard)
+        public void AddScheduleCard(ScheduleCard card)
         {
             _scheduleRepository.CreateOrUpdate(card);
         }
@@ -29,9 +29,9 @@ namespace AnimalRegister.MVVM.Model.Controllers
             _scheduleRepository.CreateOrUpdate(scheduleCard);
         }
 
-        public void RemoveScheduleCard(long id)
+        public void RemoveScheduleCard(ScheduleCard card)
         {
-            _scheduleRepository.Delete(id);
+            _scheduleRepository.Delete(card);
         }
     }
 }
