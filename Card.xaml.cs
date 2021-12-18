@@ -28,19 +28,18 @@ namespace AnimalRegister
         public Card(bool isCreate, long id = 1)
         {
             InitializeComponent();
-            
-            if(!isCreate)
+
+            if (!isCreate)
                 LoadCard(id);
             else
                 CreateCard();
-            
         }
 
         private void LoadCard(long id)
         {
             _animalCard = new AnimalCardController().OpenAnimalCard(id);
 
-            MK.Text = _animalCard.MCNumber.ToString();
+            MK.Text = _animalCard.MCNumber;
             Name.Text = _animalCard.Name; //
             Category.Text = _animalCard.Category;
             Gender.Text = _animalCard.Gender;
@@ -53,16 +52,21 @@ namespace AnimalRegister
             StatusDate.Text = _animalCard.StatusDate.ToString();
             DateOfCatch.Text = _animalCard.DateOfCatch.ToString();
             Executor.Text = _animalCard.Executor;
-            Organization.Text = _animalCard.OrganizationId.Name.ToString();
+            Organization.Text = _animalCard.OrganizationId.Name;
             Conclusion.Text = _animalCard.Conclusion.ToString();
             Validity.Text = _animalCard.Validity.ToString();
         }
 
         private void CreateCard()
         {
-            
+            _animalCard = new AnimalCard {MunicipalityId = new Municipalities(), OrganizationId = new Organization()};
+
+            StatusDate.Text = DateTime.Now.ToString();
+            DateOfCatch.Text = DateTime.Now.ToString();
+            Conclusion.Text = DateTime.Now.ToString();
+            Validity.Text = DateTime.Now.ToString();
         }
-        
+
         private void BorderMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
@@ -83,9 +87,6 @@ namespace AnimalRegister
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (_animalCard is null)
-                _animalCard = new AnimalCard();
-
             _animalCard.MCNumber = MK.Text;
             _animalCard.Name = Name.Text;
             _animalCard.Category = Category.Text;
@@ -105,7 +106,7 @@ namespace AnimalRegister
 
             _animalCard.MunicipalityId.Id = 1;
             _animalCard.OrganizationId.Id = 1;
-            
+
             AnimalCardController animalCardController = new AnimalCardController();
             animalCardController.AddAnimalCard(_animalCard);
 
@@ -119,11 +120,11 @@ namespace AnimalRegister
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             AnimalCardController animalCardController = new AnimalCardController();
-            
-            if(_animalCard is not null)
+
+            if (_animalCard is not null)
                 animalCardController.RemoveAnimalCard(_animalCard);
 
-            
+
             Close();
         }
     }

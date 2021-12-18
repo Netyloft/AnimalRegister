@@ -16,8 +16,7 @@ namespace AnimalRegister.MVVM.Model.Repositories
         public List<AnimalCard> GetAll()
         {
             using ISession session = NHibernateHelper.OpenSession();
-            var rr = new List<AnimalCard>(session.CreateCriteria(typeof(AnimalCard)).List<AnimalCard>());
-            return rr;
+            return new List<AnimalCard>(session.CreateCriteria(typeof(AnimalCard)).List<AnimalCard>());
         }
         
         public AnimalCard Get(long id)

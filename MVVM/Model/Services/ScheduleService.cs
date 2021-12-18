@@ -13,6 +13,11 @@ namespace AnimalRegister.MVVM.Model.Controllers
         {
             throw new NotImplementedException();
         }
+        
+        public List<ScheduleCard> GetAllScheduleCards()
+        {
+            return _scheduleRepository.GetAll();
+        }
 
         public ScheduleCard OpenScheduleCard(long id)
         {

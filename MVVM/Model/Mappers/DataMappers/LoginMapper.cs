@@ -5,7 +5,7 @@ namespace AnimalRegister.MVVM.Model.Mappers
     public static class LoginMapper
     {
         public static User GetUser(Dictionary<string, string> data) =>
-            new() {Login = data["login"], Password = data["password"]};
+            new() {Login = data["Login"], Password = data["Password"]};
         
         
         public static Dictionary<string, string> GetResult(User user)

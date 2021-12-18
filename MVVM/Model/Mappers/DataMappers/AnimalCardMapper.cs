@@ -4,65 +4,66 @@ using System.Text;
 
 namespace AnimalRegister.MVVM.Model.Mappers
 {
-     public static class AnimalCardMapper
-     {
-         // public static AnimalCard GetAnimalCard(Dictionary<string,string> data)
-         // {
-         //     Municipalities municipalities = new Municipalities();
-         //     municipalities.Name
-         //     
-         //     return new AnimalCard()
-         //     {
-         //         Name = data["Name"],
-         //         DateOfCatch = data["DateOfCatch"],
-         //         Municipality = data["municipality"],
-         //         Locality = data["locality"],
-         //         Category = data["category"],
-         //         Gender = data["gender"],
-         //         Wool = data["wool"],
-         //         Size = data["size"],
-         //         MK = data ["mk"],
-         //         Conclusion = data["conclusion"],
-         //         Validity = data["validity"],
-         //         StatusDate = data["datestatus"],
-         //         Executor = data["executor"],
-         //         Status = data["status"],
-         //         LocalGovernment = data["localGoverment"]
-         //     };
-         // }
-//
-         // public static Dictionary<string, string> GetResult(AnimalCard animalCard)
-         // {
-         //     return new()
-         //     {
-         //         {"name", animalCard.Name},
-         //         {"dateOfCatch", animalCard.DateOfCatch},
-         //         {"name", animalCard.Name},
-         //         {"name", animalCard.Name},
-         //         {"name", animalCard.Name},
-         //         {"name", animalCard.Name},
-         //         {"name", animalCard.Name},
-         //         {"name", animalCard.Name},
-         //         {"name", animalCard.Name},
-         //         {"name", animalCard.Name},
-         //         {"name", animalCard.Name},
-         //     }
-         //     return DataGenerator.GenerateAnimalDataModel(
-         //         animalCard.Name,
-         //         animalCard.DateCatch,
-         //         animalCard.Municipality,
-         //         animalCard.Locality,
-         //         animalCard.Category,
-         //         animalCard.Gender,
-         //         animalCard.Wool,
-         //         animalCard.Size,
-         //         animalCard.MK,
-         //         animalCard.Conclusion,
-         //         animalCard.Validity,
-         //         animalCard.StatusDate,
-         //         animalCard.Executor,
-         //         animalCard.Status,
-         //         animalCard.LocalGovernment);
-         // }
+    public static class AnimalCardMapper
+    {
+        public static AnimalCard GetAnimalCard(Dictionary<string, string> data)
+        {
+            var municipalities = new Municipalities
+            {
+                Id = int.Parse(data["Municipality.Id"]),
+                Name = data["Municipality.Id"],
+                LocalGovernment = data["Municipality.Id"]
+            };
+
+            var organization = new Organization
+            {
+                Id = int.Parse(data["Organization.Id"]), 
+                Name = data["Organization.Name"]
+            };
+
+            return new AnimalCard()
+            {
+                Id = int.Parse(data["Id"]),
+                Name = data["Name"],
+                DateOfCatch = DateTime.Parse(data["DateOfCatch"]),
+                MunicipalityId = municipalities,
+                Locality = data["Locality"],
+                Category = data["Category"],
+                Gender = data["Gender"],
+                TypeOfWool = data["TypeOfWool"],
+                Size = data["Size"],
+                MCNumber = data["MCNumber"],
+                Conclusion = DateTime.Parse(data["Conclusion"]),
+                Validity = DateTime.Parse(data["Validity"]),
+                StatusDate = DateTime.Parse(data["StatusDate"]),
+                Executor = data["Executor"],
+                Status = data["Status"],
+                OrganizationId = organization
+            };
+        }
+
+        public static Dictionary<string, string> GetResult(AnimalCard animalCard)
+        {
+            return DataGenerator.GenerateAnimalDataModel(
+                animalCard.Id.ToString(),
+                animalCard.Status,
+                animalCard.Category,
+                animalCard.Name,
+                animalCard.Size,
+                animalCard.TypeOfWool,
+                animalCard.Gender,
+                animalCard.DateOfCatch.ToString(),
+                animalCard.Locality,
+                animalCard.StatusDate.ToString(),
+                animalCard.MunicipalityId.Id.ToString(),
+                animalCard.MunicipalityId.Name,
+                animalCard.MunicipalityId.LocalGovernment,
+                animalCard.OrganizationId.Id.ToString(),
+                animalCard.OrganizationId.Name,
+                animalCard.Executor,
+                animalCard.Conclusion.ToString(),
+                animalCard.Validity.ToString(),
+                animalCard.MCNumber);
+        }
     }
 }

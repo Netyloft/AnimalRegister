@@ -1,4 +1,5 @@
-﻿using AnimalRegister.MVVM.Model.Mappers;
+﻿using System.Collections.Generic;
+using AnimalRegister.MVVM.Model.Mappers;
 using AnimalRegister.MVVM.Model.NHibernate;
 using NHibernate;
 
@@ -12,6 +13,12 @@ namespace AnimalRegister.MVVM.Model.Repositories
         //
         // }
 
+        public List<ScheduleCard> GetAll()
+        {
+            using ISession session = NHibernateHelper.OpenSession();
+            return new List<ScheduleCard>(session.CreateCriteria(typeof(ScheduleCard)).List<ScheduleCard>());
+        }
+        
         public ScheduleCard Get(long id)
         {
             using ISession session = NHibernateHelper.OpenSession();

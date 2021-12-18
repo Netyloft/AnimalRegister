@@ -33,4 +33,17 @@
     <None Remove="App.config" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="ScheduleCardCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ScheduleCardCard.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>ScheduleCard.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

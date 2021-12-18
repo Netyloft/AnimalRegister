@@ -5,52 +5,58 @@ namespace AnimalRegister.MVVM.Model
 {
     public static class DataGenerator
     {
-        public static Dictionary<string, string> GenerateLoginDataModel(string name = null, string login = null,
-            string password = null) =>
+        public static Dictionary<string, string> GenerateLoginDataModel(string Name = null, string Login = null,
+            string Password = null) =>
             new()
             {
-                {"name", name},
-                {"login", login},
-                {"password", password},
+                {"Name", Name},
+                {"Login", Login},
+                {"Password", Password},
                 {"validationStatus", null},
                 {"message", null}
             };
-        
+
         public static Dictionary<string, string> GenerateAnimalDataModel(
-            string id,
-            string name = null,
-            DateTime dateCatch = default,
-            string municipality = null,
-            string locality = null,
-            string category = null,
-            string gender = null,
-            string wool = null,
-            string size = null,
-            string mk = null,
-            DateTime conclusion = default,
-            DateTime validity = default,
-            DateTime statusDate = default,
-            string executor = null,
-            string status = null,
-            string localGovernment = null) =>
+            string Id = null,
+            string Status = null,
+            string Category = null,
+            string Name = null,
+            string Size = null,
+            string TypeOfWool = null,
+            string Gender = null,
+            string DateOfCatch = null, //это дата
+            string Locality = null,
+            string StatusDate = null, //это дата
+            string MunicipalitiesId = null,
+            string MunicipalitiesName = null,
+            string MunicipalitiesLocalGovernment = null,
+            string OrganizationId = null,
+            string OrganizationName = null,
+            string Executor = null,
+            string Conclusion = null, //это дата
+            string Validity = null, // это дата
+            string MCNumber = null) =>
             new Dictionary<string, string>
             {
-                {"Id", id},
-                {"Name", name},
-                {"DateOfCatch", dateCatch.ToString()},
-                {"Municipality", municipality},
-                {"Locality", locality},
-                {"Category", category},
-                {"Gender", gender},
-                {"TypeOfWool", wool},
-                {"Size", size},
-                {"MK", mk},
-                {"Conclusion", conclusion.ToString()},
-                {"Validity", validity.ToString()},
-                {"Executor", executor},
-                {"LocalGovernment", localGovernment},
-                {"Status", status},
-                {"StatusDate", statusDate.ToString()},
+                {"Id", Id},
+                {"Status", Status},
+                {"Category", Category},
+                {"Name", Name},
+                {"Size", Size},
+                {"TypeOfWool", TypeOfWool},
+                {"Gender", Gender},
+                {"DateOfCatch", DateOfCatch},
+                {"Locality", Locality},
+                {"StatusDate", StatusDate},
+                {"Municipality.Id", MunicipalitiesId},
+                {"Municipalities.Name", MunicipalitiesName},
+                {"Municipalities.LocalGovernment", MunicipalitiesLocalGovernment},
+                {"Organization.Id", OrganizationId},
+                {"Organization.Name", OrganizationName},
+                {"Executor", Executor},
+                {"Conclusion", Conclusion},
+                {"Validity", Validity},
+                {"MCNumber", MCNumber},
                 {"validationStatus", null},
                 {"message", null}
             };

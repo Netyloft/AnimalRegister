@@ -29,11 +29,11 @@ namespace AnimalRegister
         {
             var login = Login.Text;
             var password = Password.Text;
-            var data = DataGenerator.GenerateLoginDataModel(login:login, password:password);
+            var data = DataGenerator.GenerateLoginDataModel(Login:login, Password:password);
 
             var result = new LoginController().Login(data);
 
-            if (result["name"] == null)
+            if (result["Name"] == null)
             {
                 MessageBox.Show("Пользователь с такими данными не зарегистрирован");
                 return;

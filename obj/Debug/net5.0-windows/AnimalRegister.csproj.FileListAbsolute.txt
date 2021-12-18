@@ -65,3 +65,5 @@ D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\runtimes\win-x
 D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Code\C#\AnimalRegister\AnimalRegister\bin\Debug\net5.0-windows\FluentNHibernate.dll
+D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\ScheduleCardCard.g.cs
+D:\Code\C#\AnimalRegister\AnimalRegister\obj\Debug\net5.0-windows\ScheduleCardCard.baml
