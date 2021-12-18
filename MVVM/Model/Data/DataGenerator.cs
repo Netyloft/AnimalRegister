@@ -5,13 +5,29 @@ namespace AnimalRegister.MVVM.Model
 {
     public static class DataGenerator
     {
-        public static Dictionary<string, string> GenerateLoginDataModel(string Name = null, string Login = null,
-            string Password = null) =>
-            new()
+        public static Dictionary<string, string> GenerateLoginDataModel(
+            string Name = null, 
+            string Login = null,
+            string Password = null,
+            string RightsId = null,
+            string RightsName = null,
+            string OrganizationId = null,
+            string OrganizationName = null,
+            string MunicipalitiesId = null,
+            string MunicipalitiesName = null,
+            string MunicipalitiesLocalGovernment = null) =>
+            new Dictionary<string, string>
             {
                 {"Name", Name},
                 {"Login", Login},
                 {"Password", Password},
+                {"RightsId", RightsId},
+                {"RightsName", RightsName},
+                {"Organization.Id", OrganizationId},
+                {"Organization.Name", OrganizationName},
+                {"Municipality.Id", MunicipalitiesId},
+                {"Municipalities.Name", MunicipalitiesName},
+                {"Municipalities.LocalGovernment", MunicipalitiesLocalGovernment},
                 {"validationStatus", null},
                 {"message", null}
             };
@@ -60,23 +76,33 @@ namespace AnimalRegister.MVVM.Model
                 {"validationStatus", null},
                 {"message", null}
             };
-        //
-        //     public static Dictionary<string, string> GenerateScheduleDataModel(
-        //         DateTime date = null,
-        //         string district = null,
-        //         string locality = null,
-        //         string status = null,
-        //         DateTime statusDate = null) =>
-        //         new Dictionary<string, string>
-        //         {
-        //             {"date", date},
-        //             {"district", district},
-        //             {"locality", locality},
-        //             {"status", status},
-        //             {"statusDate", statusDate},
-        //             {"validationStatus", null},
-        //             {"message", null}
-        //         };
-        // }
+
+        public static Dictionary<string, string> GenerateScheduleDataModel(
+            string Date = null,
+            string District = null,
+            string Locality = null,
+            string Status = null,
+            string StatusDate = null,
+            string OrganizationId = null,
+            string OrganizationName = null,
+            string MunicipalitiesId = null,
+            string MunicipalitiesName = null,
+            string MunicipalitiesLocalGovernment = null) =>
+            new Dictionary<string, string>
+            {
+                     {"Date", Date},
+                     {"District", District},
+                     {"Locality", Locality},
+                     {"Status", Status},
+                     {"StatusDate", StatusDate},
+                     {"Organization.Id", OrganizationId},
+                     {"Organization.Name", OrganizationName},
+                     {"Municipality.Id", MunicipalitiesId},
+                     {"Municipalities.Name", MunicipalitiesName},
+                     {"Municipalities.LocalGovernment", MunicipalitiesLocalGovernment},
+                     {"validationStatus", null},
+                     {"message", null}
+            };
     }
+}
 }
