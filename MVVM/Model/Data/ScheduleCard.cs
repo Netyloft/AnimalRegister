@@ -15,6 +15,6 @@ namespace AnimalRegister.MVVM.Model
         public virtual string Status{ get; set; }
         public virtual DateTime StatusDate{ get; set; }
         public virtual Organization OrganizationId{ get; set; }
-        public virtual Municipalities MunicipalitiesId{ get; set; }
+        public virtual Municipalities MunicipalityId{ get; set; }
     }
 }

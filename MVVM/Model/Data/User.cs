@@ -10,6 +10,6 @@ namespace AnimalRegister.MVVM.Model
         public virtual string Password { get; set; }
         public virtual UserRights RightsId { get; set; }
         public virtual Organization OrganizationId { get; set; }
-        public virtual Municipalities LocalGovernmentId { get; set; }
+        public virtual Municipalities MunicipalityId { get; set; }
     }
 }

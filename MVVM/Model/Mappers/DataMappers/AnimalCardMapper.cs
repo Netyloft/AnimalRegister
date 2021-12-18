@@ -10,9 +10,9 @@ namespace AnimalRegister.MVVM.Model.Mappers
         {
             var municipalities = new Municipalities
             {
-                Id = int.Parse(data["Municipality.Id"]),
-                Name = data["Municipality.Id"],
-                LocalGovernment = data["Municipality.Id"]
+                Id = int.Parse(data["Municipalities.Id"]),
+                Name = data["Municipalities.Name"],
+                LocalGovernment = data["Municipalities.LocalGoverment"]
             };
 
             var organization = new Organization

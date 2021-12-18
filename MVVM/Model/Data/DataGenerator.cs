@@ -5,12 +5,14 @@ namespace AnimalRegister.MVVM.Model
 {
     public static class DataGenerator
     {
+        //todo Разобраться с UserRights
         public static Dictionary<string, string> GenerateLoginDataModel(
+            string Id = null,
             string Name = null, 
             string Login = null,
             string Password = null,
-            string RightsId = null,
-            string RightsName = null,
+            //string RightsId = null,
+            //string RightsName = null,
             string OrganizationId = null,
             string OrganizationName = null,
             string MunicipalitiesId = null,
@@ -18,11 +20,12 @@ namespace AnimalRegister.MVVM.Model
             string MunicipalitiesLocalGovernment = null) =>
             new Dictionary<string, string>
             {
+                {"Id", Id},
                 {"Name", Name},
                 {"Login", Login},
                 {"Password", Password},
-                {"RightsId", RightsId},
-                {"RightsName", RightsName},
+                //{"RightsId", RightsId},
+                //{"RightsName", RightsName},
                 {"Organization.Id", OrganizationId},
                 {"Organization.Name", OrganizationName},
                 {"Municipality.Id", MunicipalitiesId},
@@ -78,6 +81,7 @@ namespace AnimalRegister.MVVM.Model
             };
 
         public static Dictionary<string, string> GenerateScheduleDataModel(
+            string Id = null,
             string Date = null,
             string District = null,
             string Locality = null,
@@ -90,18 +94,19 @@ namespace AnimalRegister.MVVM.Model
             string MunicipalitiesLocalGovernment = null) =>
             new Dictionary<string, string>
             {
-                     {"Date", Date},
-                     {"District", District},
-                     {"Locality", Locality},
-                     {"Status", Status},
-                     {"StatusDate", StatusDate},
-                     {"Organization.Id", OrganizationId},
-                     {"Organization.Name", OrganizationName},
-                     {"Municipality.Id", MunicipalitiesId},
-                     {"Municipalities.Name", MunicipalitiesName},
-                     {"Municipalities.LocalGovernment", MunicipalitiesLocalGovernment},
-                     {"validationStatus", null},
-                     {"message", null}
+                {"Id", Id },
+                {"Date", Date},
+                {"District", District},
+                {"Locality", Locality},
+                {"Status", Status},
+                {"StatusDate", StatusDate},
+                {"Organization.Id", OrganizationId},
+                {"Organization.Name", OrganizationName},
+                {"Municipality.Id", MunicipalitiesId},
+                {"Municipalities.Name", MunicipalitiesName},
+                {"Municipalities.LocalGovernment", MunicipalitiesLocalGovernment},
+                {"validationStatus", null},
+                {"message", null}
             };
     }
 }
