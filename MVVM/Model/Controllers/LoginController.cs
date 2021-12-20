@@ -13,7 +13,7 @@ namespace AnimalRegister.MVVM.Model.Controllers
         {
             var isValid = LoginValidator.Validate(data);
 
-            if (!isValid["validationStatus"].Equals("Valid"))
+            if (isValid["validationStatus"].Equals("INVALID"))
                 return isValid;
             
             var user = LoginMapper.GetUser(data);

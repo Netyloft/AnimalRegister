@@ -26,12 +26,12 @@ namespace AnimalRegister.MVVM.Model.Controllers
 
         public void AddScheduleCard(ScheduleCard card)
         {
-            _scheduleRepository.CreateOrUpdate(card);
+            _scheduleRepository.Create(card);
         }
 
         public void ChangeScheduleCard(ScheduleCard scheduleCard)
         {
-            _scheduleRepository.CreateOrUpdate(scheduleCard);
+            _scheduleRepository.Update(scheduleCard);
         }
 
         public void RemoveScheduleCard(ScheduleCard card)

@@ -26,11 +26,19 @@ namespace AnimalRegister.MVVM.Model.Repositories
         }
         
 
-        public void CreateOrUpdate(AnimalCard animalCard)
+        public void Create(AnimalCard animalCard)
         {
             using ISession session = NHibernateHelper.OpenSession();
             using ITransaction transaction = session.BeginTransaction();
-            session.SaveOrUpdate(animalCard);
+            session.Save(animalCard);
+            transaction.Commit();
+        }
+        
+        public void Update(AnimalCard animalCard)
+        {
+            using ISession session = NHibernateHelper.OpenSession();
+            using ITransaction transaction = session.BeginTransaction();
+            session.Update(animalCard);
             transaction.Commit();
         }
 

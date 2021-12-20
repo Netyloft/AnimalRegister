@@ -5,19 +5,12 @@ namespace AnimalRegister.MVVM.Model.Mappers.ModelMappers
 {
     public static class AnimalCardModelMapper
     {
-        public static AnimalCardModel ToModel(AnimalCard animalCard) =>
-            new AnimalCardModel
-            {
-                Id = animalCard.Id,
-                Name = animalCard.Name,
-                Locality = animalCard.Locality,
-                Municipality = animalCard.MunicipalityId.Name,
-                Status = animalCard.Status,
-                Catch = animalCard.DateOfCatch,
-                MK = animalCard.MCNumber
-            };
+        public static Dictionary<string, string> ToModel(AnimalCard animalCard) => DataGenerator.GenerateAnimalModel(
+            animalCard.Id.ToString(), animalCard.Name, animalCard.MCNumber, animalCard.MunicipalityId.Name,
+            animalCard.Locality, animalCard.Status, animalCard.DateOfCatch.ToString());
+            
 
-        public static List<AnimalCardModel> ToModel(IEnumerable<AnimalCard> animalCards) =>
+        public static List<Dictionary<string, string>> ToModel(IEnumerable<AnimalCard> animalCards) =>
             animalCards.Select(ToModel).ToList();
     }
 }

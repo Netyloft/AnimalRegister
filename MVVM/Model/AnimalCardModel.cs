@@ -4,7 +4,7 @@ namespace AnimalRegister.MVVM.Model
 {
     public class AnimalCardModel
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string MK { get; set; }
         public DateTime Catch { get; set; }

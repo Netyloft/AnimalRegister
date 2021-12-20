@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using AnimalRegister.MVVM.Model.Mappers;
 using AnimalRegister.MVVM.Model.Mappers.ModelMappers;
+using AnimalRegister.MVVM.Model.Validators;
 
 namespace AnimalRegister.MVVM.Model.Controllers
 {
@@ -8,7 +10,7 @@ namespace AnimalRegister.MVVM.Model.Controllers
     {
         private readonly AnimalCardService _animalCardService = new AnimalCardService();
 
-        public IEnumerable<AnimalCardModel> GetAllAnimalCards()
+        public IEnumerable<Dictionary<string, string>> GetAllAnimalCards()
         {
             return AnimalCardModelMapper.ToModel(_animalCardService.GetAllAnimalCards());
         }
@@ -18,18 +20,42 @@ namespace AnimalRegister.MVVM.Model.Controllers
         //     return _animalCardService.GetAnimalCards(filters, sort);
         // }
 
-        public AnimalCard OpenAnimalCard(long id)
+        public Dictionary<string, string> OpenAnimalCard(long id)
         {
-            return _animalCardService.OpenAnimalCard(id);
+            return AnimalCardMapper.GetResult(_animalCardService.OpenAnimalCard(id));
         }
 
-        public void AddAnimalCard(AnimalCard card)
+        public Dictionary<string, string> AddAnimalCard(Dictionary<string, string> data)
         {
+            var isValid = AnimalCardValidator.Validate(data);
+
+            if (isValid["validationStatus"].Equals("INVALID"))
+                return isValid;
+            
+            var card = AnimalCardMapper.GetAnimalCard(data);
+
             _animalCardService.AddAnimalCard(card);
+
+            return isValid;
+        }
+        
+        public Dictionary<string, string> ChangeAnimalCard(Dictionary<string, string> data)
+        {
+            var isValid = AnimalCardValidator.Validate(data);
+
+            if (isValid["validationStatus"].Equals("INVALID"))
+                return isValid;
+            
+            var card = AnimalCardMapper.GetAnimalCard(data);
+
+            _animalCardService.ChangeAnimalCard(card);
+
+            return isValid;
         }
 
-        public void RemoveAnimalCard(AnimalCard card)
+        public void RemoveAnimalCard(int id)
         {
+            var card = AnimalCardMapper.GetAnimalCard(id);
             _animalCardService.RemoveAnimalCard(card);
         }
     }

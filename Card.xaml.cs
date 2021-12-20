@@ -18,15 +18,14 @@ using AnimalRegister.MVVM.Model.Controllers;
 
 namespace AnimalRegister
 {
-    /// <summary>
-    /// Логика взаимодействия для Card.xaml
-    /// </summary>
     public partial class Card : Window
     {
-        private AnimalCard _animalCard;
+        private bool isCreate;
+        private int id;
 
-        public Card(bool isCreate, long id = 1)
+        public Card(bool isCreate, int id = -1)
         {
+            this.id = id;
             InitializeComponent();
 
             if (!isCreate)
@@ -35,36 +34,68 @@ namespace AnimalRegister
                 CreateCard();
         }
 
-        private void LoadCard(long id)
+        private void LoadCard(int id)
         {
-            _animalCard = new AnimalCardController().OpenAnimalCard(id);
+            var data = new AnimalCardController().OpenAnimalCard(id);
 
-            MK.Text = _animalCard.MCNumber;
-            Name.Text = _animalCard.Name; //
-            Category.Text = _animalCard.Category;
-            Gender.Text = _animalCard.Gender;
-            Size.Text = _animalCard.Size;
-            TypeOfWool.Text = _animalCard.TypeOfWool;
-            Municipality.Text = _animalCard.MunicipalityId.Name;
-            LocalGovernment.Text = _animalCard.MunicipalityId.LocalGovernment;
-            Locality.Text = _animalCard.Locality;
-            Status.Text = _animalCard.Status;
-            StatusDate.Text = _animalCard.StatusDate.ToString();
-            DateOfCatch.Text = _animalCard.DateOfCatch.ToString();
-            Executor.Text = _animalCard.Executor;
-            Organization.Text = _animalCard.OrganizationId.Name;
-            Conclusion.Text = _animalCard.Conclusion.ToString();
-            Validity.Text = _animalCard.Validity.ToString();
+            MK.Text = data["MCNumber"];
+            Name.Text = data["Name"]; //
+            Category.Text = data["Category"];
+            Gender.Text = data["Gender"];
+            Size.Text = data["Size"];
+            TypeOfWool.Text = data["TypeOfWool"];
+            Municipality.Text = data["Municipalities.Name"];
+            LocalGovernment.Text = data["Municipalities.LocalGovernment"];
+            Locality.Text = data["Locality"];
+            Status.Text = data["Status"];
+            StatusDate.Text = data["StatusDate"];
+            DateOfCatch.Text = data["DateOfCatch"];
+            Executor.Text = data["Executor"];
+            Organization.Text = data["Organization.Name"];
+            Conclusion.Text = data["Conclusion"];
+            Validity.Text = data["Validity"];
         }
 
         private void CreateCard()
         {
-            _animalCard = new AnimalCard {MunicipalityId = new Municipalities(), OrganizationId = new Organization()};
+            isCreate = true;
 
             StatusDate.Text = DateTime.Now.ToString();
             DateOfCatch.Text = DateTime.Now.ToString();
             Conclusion.Text = DateTime.Now.ToString();
             Validity.Text = DateTime.Now.ToString();
+        }
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var data = DataGenerator.GenerateAnimalDataModel(id.ToString(), Status.Text, Category.Text, Name.Text, Size.Text,
+                TypeOfWool.Text, Gender.Text, DateOfCatch.Text, Locality.Text,
+                StatusDate.Text, "1", Municipality.Text, LocalGovernment.Text, "1", Organization.Text, Executor.Text,
+                Conclusion.Text, Validity.Text, MK.Text);
+
+
+            AnimalCardController animalCardController = new AnimalCardController();
+            Dictionary<string, string> res;
+
+            if (isCreate)
+                res = animalCardController.AddAnimalCard(data);
+            else
+                res = animalCardController.ChangeAnimalCard(data);
+            
+            if (res["validationStatus"] == "INVALID")
+                MessageBox.Show(res["message"]);
+            else
+                Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AnimalCardController animalCardController = new AnimalCardController();
+
+            if (!isCreate)
+                animalCardController.RemoveAnimalCard(id);
+            
+            Close();
         }
 
         private void BorderMouseDown(object sender, MouseButtonEventArgs e)
@@ -85,47 +116,6 @@ namespace AnimalRegister
 
         private void CloseButtonClick(object sender, RoutedEventArgs e) => Close();
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _animalCard.MCNumber = MK.Text;
-            _animalCard.Name = Name.Text;
-            _animalCard.Category = Category.Text;
-            _animalCard.Gender = Gender.Text;
-            _animalCard.Size = Size.Text;
-            _animalCard.TypeOfWool = TypeOfWool.Text;
-            _animalCard.MunicipalityId.Name = Municipality.Text;
-            _animalCard.MunicipalityId.LocalGovernment = LocalGovernment.Text;
-            _animalCard.Locality = Locality.Text;
-            _animalCard.Status = Status.Text;
-            _animalCard.StatusDate = DateTime.Parse(StatusDate.Text);
-            _animalCard.DateOfCatch = DateTime.Parse(DateOfCatch.Text);
-            _animalCard.Executor = Executor.Text;
-            _animalCard.OrganizationId.Name = Organization.Text;
-            _animalCard.Conclusion = DateTime.Parse(Conclusion.Text);
-            _animalCard.Validity = DateTime.Parse(Validity.Text);
-
-            _animalCard.MunicipalityId.Id = 1;
-            _animalCard.OrganizationId.Id = 1;
-
-            AnimalCardController animalCardController = new AnimalCardController();
-            animalCardController.AddAnimalCard(_animalCard);
-
-            Close();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            AnimalCardController animalCardController = new AnimalCardController();
-
-            if (_animalCard is not null)
-                animalCardController.RemoveAnimalCard(_animalCard);
-
-
-            Close();
-        }
+        
     }
 }

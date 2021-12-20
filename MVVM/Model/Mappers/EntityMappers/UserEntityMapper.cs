@@ -12,7 +12,7 @@ namespace AnimalRegister.MVVM.Model
             Map(x => x.Password).Column("Password");
             References(x => x.RightsId).Column("RoleId").Fetch.Join();
             References(x => x.OrganizationId).Column("OrganizationId").Fetch.Join();
-            References(x => x.LocalGovernmentId).Column("LocalGovernmentId").Fetch.Join();
+            References(x => x.MunicipalityId).Column("LocalGovernmentId").Fetch.Join();
             Table("Userss");
         }
     }

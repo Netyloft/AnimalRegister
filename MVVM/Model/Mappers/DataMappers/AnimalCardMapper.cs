@@ -10,14 +10,14 @@ namespace AnimalRegister.MVVM.Model.Mappers
         {
             var municipalities = new Municipalities
             {
-                Id = int.Parse(data["Municipalities.Id"]),
+                Id = int.Parse(data["Municipality.Id"]),
                 Name = data["Municipalities.Name"],
-                LocalGovernment = data["Municipalities.LocalGoverment"]
+                LocalGovernment = data["Municipalities.LocalGovernment"]
             };
 
             var organization = new Organization
             {
-                Id = int.Parse(data["Organization.Id"]), 
+                Id = int.Parse(data["Organization.Id"]),
                 Name = data["Organization.Name"]
             };
 
@@ -40,6 +40,11 @@ namespace AnimalRegister.MVVM.Model.Mappers
                 Status = data["Status"],
                 OrganizationId = organization
             };
+        }
+
+        public static AnimalCard GetAnimalCard(int id)
+        {
+            return new AnimalCard() {Id = id};
         }
 
         public static Dictionary<string, string> GetResult(AnimalCard animalCard)

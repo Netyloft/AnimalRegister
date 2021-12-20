@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using AnimalRegister.MVVM.Model.Mappers;
 using AnimalRegister.MVVM.Model.Mappers.ModelMappers;
+using AnimalRegister.MVVM.Model.Validators;
 
 namespace AnimalRegister.MVVM.Model.Controllers
 {
@@ -12,23 +14,45 @@ namespace AnimalRegister.MVVM.Model.Controllers
             throw new NotImplementedException();
         }
         
-        public List<ScheduleCardModel> GetAllScheduleCards()
+        public List<Dictionary<string, string>> GetAllScheduleCards()
         {
             return ScheduleCardModelMapper.ToModel(_scheduleService.GetAllScheduleCards());
         }
 
-        public ScheduleCard OpenScheduleCard(long id)
+        public Dictionary<string, string> OpenScheduleCard(long id)
         {
-            return _scheduleService.OpenScheduleCard(id);
+            return ScheduleCardMapper.GetResult(_scheduleService.OpenScheduleCard(id));
         }
 
-        public void AddScheduleCard(ScheduleCard card)
+        public Dictionary<string, string> AddScheduleCard(Dictionary<string, string> data)
         {
+            var isValid = ScheduleCardValidator.Validate(data);
+            
+            if (isValid["validationStatus"].Equals("INVALID"))
+                return isValid;
+
+            var card = ScheduleCardMapper.GetScheduleCard(data);
             _scheduleService.AddScheduleCard(card);
+
+            return isValid;
+        }
+        
+        public Dictionary<string, string> ChangeScheduleCard(Dictionary<string, string> data)
+        {
+            var isValid = ScheduleCardValidator.Validate(data);
+            
+            if (isValid["validationStatus"].Equals("INVALID"))
+                return isValid;
+
+            var card = ScheduleCardMapper.GetScheduleCard(data);
+            _scheduleService.ChangeScheduleCard(card);
+
+            return isValid;
         }
 
-        public void RemoveScheduleCard(ScheduleCard card)
+        public void RemoveScheduleCard(int id)
         {
+            var card = ScheduleCardMapper.GetScheduleCard(id);
             _scheduleService.RemoveScheduleCard(card);
         }
     }

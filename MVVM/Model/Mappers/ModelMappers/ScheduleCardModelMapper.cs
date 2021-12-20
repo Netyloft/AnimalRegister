@@ -5,26 +5,21 @@ namespace AnimalRegister.MVVM.Model.Mappers.ModelMappers
 {
     public static class ScheduleCardModelMapper
     {
-        public static ScheduleCardModel ToModel(ScheduleCard scheduleCard) =>
-            new ScheduleCardModel
-            {
-                Id = scheduleCard.Id,
-                Date = scheduleCard.Date,
-                Locality = scheduleCard.Locality,
-                District = scheduleCard.District,
-                Status = scheduleCard.Status
-            };
+        public static Dictionary<string, string> ToModel(ScheduleCard scheduleCard) =>
+            DataGenerator.GenerateScheduleModel(scheduleCard.Id.ToString(), scheduleCard.Date.ToString(),
+                scheduleCard.District, scheduleCard.Locality, scheduleCard.Status);
 
-        public static List<ScheduleCardModel> ToModel(IEnumerable<ScheduleCard> scheduleCards)
+
+        public static List<Dictionary<string, string>> ToModel(IEnumerable<ScheduleCard> scheduleCards)
         {
-            var res = new List<ScheduleCardModel>();
+            var res = new List<Dictionary<string, string>>();
             foreach (var scheduleCard in scheduleCards)
             {
                 res.Add(ToModel(scheduleCard));
             }
 
             return res;
-            //return scheduleCards.Select(ToModel).ToList();
+            
         }
     }
 }

@@ -10,9 +10,8 @@ namespace AnimalRegister.MVVM.Model.Validators
         {
             try
             {
-                int.Parse(data["Id"]);
                 int.Parse(data["Organization.Id"]);
-                int.Parse(data["Minicipality.Id"]);
+                int.Parse(data["Municipality.Id"]);
                 DateTime.Parse(data["Date"]);
                 DateTime.Parse(data["StatusDate"]);
             }

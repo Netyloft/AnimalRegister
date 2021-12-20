@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using AnimalRegister.MVVM.Model;
 using AnimalRegister.MVVM.Model.Controllers;
 
 namespace AnimalRegister
 {
     public partial class MainWindow : Window
     {
-        private readonly List<long> ids = new List<long>();
+        private readonly List<int> ids = new List<int>();
 
         private bool isAnimal = true;
 
@@ -30,10 +31,23 @@ namespace AnimalRegister
         private void UpdateAnimalDataGrid()
         {
             ids.Clear();
-            var animals = new AnimalCardController().GetAllAnimalCards();
-            foreach (var animalCardModel in animals)
+            var data = new AnimalCardController().GetAllAnimalCards();
+            var animals = new List<AnimalCardModel>();
+            foreach (var animalCardModel in data)
             {
-                ids.Add(animalCardModel.Id);
+                var animal = new AnimalCardModel()
+                {
+                    Id = int.Parse(animalCardModel["Id"]),
+                    Catch = DateTime.Parse(animalCardModel["Catch"]),
+                    Name = animalCardModel["Name"],
+                    MK = animalCardModel["MK"],
+                    Municipality = animalCardModel["Municipality.Name"],
+                    Locality = animalCardModel["Locality"],
+                    Status = animalCardModel["Status"]
+                };
+                ids.Add(animal.Id);
+                animals.Add(animal);
+                
             }
 
             animalsGrid.ItemsSource = animals;
@@ -42,14 +56,27 @@ namespace AnimalRegister
         private void UpdateScheduleDataGrid()
         {
             ids.Clear();
-            var schedules = new ScheduleCardController().GetAllScheduleCards();
-            foreach (var scheduleCardModel in schedules)
+            var data = new ScheduleCardController().GetAllScheduleCards();
+            var schedules = new List<ScheduleCardModel>();
+            foreach (var scheduleCardModel in data)
             {
-                ids.Add(scheduleCardModel.Id);
+                var schedul = new ScheduleCardModel()
+                {
+                    Id = int.Parse(scheduleCardModel["Id"]),
+                    Date = DateTime.Parse(scheduleCardModel["Date"]),
+                    District = scheduleCardModel["District"],
+                    Locality = scheduleCardModel["Locality"],
+                    Status = scheduleCardModel["Status"]
+                };
+                ids.Add(schedul.Id);
+                schedules.Add(schedul);
+                
             }
 
             scheduleGrid.ItemsSource = schedules;
         }
+            
+        
 
         private void BorderMouseDown(object sender, MouseButtonEventArgs e)
         {

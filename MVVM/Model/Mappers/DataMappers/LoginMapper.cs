@@ -5,20 +5,20 @@ namespace AnimalRegister.MVVM.Model.Mappers
     public static class LoginMapper
     {
         //todo Разобраться с UserRights
-        public static User GetUser(Dictrionary<string,string> data)
+        public static User GetUser(Dictionary<string,string> data)
         {
-            var municipalities = new Municipalities
-            {
-                Id = int.Parse(data["Municipalities.Id"]),
-                Name = data["Municipalities.Name"],
-                LocalGovernment = data["Municipalities.LocalGoverment"]
-            };
-
-            var organization = new Organization
-            {
-                Id = int.Parse(data["Organization.Id"]),
-                Name = data["Organization.Name"]
-            };
+            // var municipalities = new Municipalities
+            // {
+            //     Id = int.Parse(data["Municipalities.Id"]),
+            //     Name = data["Municipalities.Name"],
+            //     LocalGovernment = data["Municipalities.LocalGoverment"]
+            // };
+            //
+            // var organization = new Organization
+            // {
+            //     Id = int.Parse(data["Organization.Id"]),
+            //     Name = data["Organization.Name"]
+            // };
 
             //var rights = new UserRights
             //{
@@ -28,20 +28,20 @@ namespace AnimalRegister.MVVM.Model.Mappers
 
             return new User()
             {
-                Id = int.Parse(data["Id"]),
-                Name = data["Name"],
+                // Id = int.Parse(data["Id"]),
+                // Name = data["Name"],
                 Login = data["Login"],
                 Password = data["Password"],
                 //RightsId =
-                OrganizationId = organization,
-                MunicipalityId = municipalities
+                // OrganizationId = organization,
+                // MunicipalityId = municipalities
             };
         }      
         
         public static Dictionary<string, string> GetResult(User user)
         {
             return DataGenerator.GenerateLoginDataModel(
-                user.Id.ToString(),
+                null,
                 user.Name, 
                 user.Login, 
                 user.Password,

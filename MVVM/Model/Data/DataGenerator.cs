@@ -8,7 +8,7 @@ namespace AnimalRegister.MVVM.Model
         //todo Разобраться с UserRights
         public static Dictionary<string, string> GenerateLoginDataModel(
             string Id = null,
-            string Name = null, 
+            string Name = null,
             string Login = null,
             string Password = null,
             //string RightsId = null,
@@ -94,7 +94,7 @@ namespace AnimalRegister.MVVM.Model
             string MunicipalitiesLocalGovernment = null) =>
             new Dictionary<string, string>
             {
-                {"Id", Id },
+                {"Id", Id},
                 {"Date", Date},
                 {"District", District},
                 {"Locality", Locality},
@@ -108,6 +108,28 @@ namespace AnimalRegister.MVVM.Model
                 {"validationStatus", null},
                 {"message", null}
             };
+
+        public static Dictionary<string, string> GenerateScheduleModel(string Id, string Date, string District,
+            string Locality, string Status) => new Dictionary<string, string>
+        {
+            {"Id", Id},
+            {"Date", Date},
+            {"District", District},
+            {"Locality", Locality},
+            {"Status", Status},
+        };
+
+
+        public static Dictionary<string, string> GenerateAnimalModel(string Id, string Name, string MK,
+            string Municipality, string Locality, string Status, string Catch) => new Dictionary<string, string>
+        {
+            {"Id", Id},
+            {"Name", Name},
+            {"MK", MK},
+            {"Municipality.Name", Municipality},
+            {"Locality", Locality},
+            {"Status", Status},
+            {"Catch", Catch}
+        };
     }
-}
 }

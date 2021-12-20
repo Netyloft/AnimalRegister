@@ -26,12 +26,12 @@ namespace AnimalRegister.MVVM.Model.Controllers
 
         public void AddAnimalCard(AnimalCard card)
         {
-            _animalRepository.CreateOrUpdate(card);
+            _animalRepository.Create(card);
         }
 
         public void ChangeAnimalCard(AnimalCard card)
         {
-            _animalRepository.CreateOrUpdate(card);
+            _animalRepository.Update(card);
         }
 
         public void RemoveAnimalCard(AnimalCard card)

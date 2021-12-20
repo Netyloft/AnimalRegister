@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AnimalRegister.MVVM.Model.Validators
 {
@@ -6,6 +7,12 @@ namespace AnimalRegister.MVVM.Model.Validators
     {
         public static Dictionary<string, string> Validate(Dictionary<string, string> data)
         {
+            if (data["Id"] is null)
+            {
+                data["validationStatus"] = "VALID";
+                return data;
+            }
+            
             try 
             {
                 int.Parse(data["Id"]);
