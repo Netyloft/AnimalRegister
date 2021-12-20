@@ -41,17 +41,17 @@ namespace AnimalRegister.MVVM.Model.Mappers
         public static Dictionary<string, string> GetResult(User user)
         {
             return DataGenerator.GenerateLoginDataModel(
-                null,
+                user.Id.ToString(),
                 user.Name, 
                 user.Login, 
-                user.Password,
+                user.Password
                 //user.RightsId.ToString(),
-                user.OrganizationId.Id.ToString(),
-                user.OrganizationId.Name,
+               // user.OrganizationId.Id.ToString(),
+                //user.OrganizationId.Name
                 //user.OrganizationId.Address разве мы храним адрес?
-                user.MunicipalityId.Id.ToString(),
-                user.MunicipalityId.Name,
-                user.MunicipalityId.LocalGovernment
+                //user.MunicipalityId.Id.ToString(),
+               // user.MunicipalityId.Name,
+                //user.MunicipalityId.LocalGovernment
                 );
         }
     }
