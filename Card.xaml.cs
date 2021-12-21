@@ -23,11 +23,18 @@ namespace AnimalRegister
         private bool isCreate;
         private int id;
 
-        public Card(bool isCreate, int id = -1)
+        public Card(bool isCreate, bool rights, int id = -1)
         {
             this.id = id;
             InitializeComponent();
 
+            if (rights)
+            {
+                BtnSave.Visibility = Visibility.Collapsed;
+                BtnDelete.Visibility = Visibility.Collapsed;
+            }
+                
+            
             if (!isCreate)
                 LoadCard(id);
             else

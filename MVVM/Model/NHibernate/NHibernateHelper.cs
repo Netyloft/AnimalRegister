@@ -1,4 +1,5 @@
-﻿using FluentNHibernate.Cfg;
+﻿using AnimalRegister.MVVM.Model.Filters;
+using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 
@@ -23,16 +24,8 @@ namespace AnimalRegister.MVVM.Model.NHibernate
                 return _sessionFactory;
             }
         }
-
         private static void InitializeSessionFactory()
         {
-            // _sessionFactory = Fluently.Configure().Database(
-            //         MsSqlConfiguration.MsSql2008.ConnectionString(
-            //             cs => 
-            //                 cs.Server("DESKTOP-OGHSGCQ")
-            //                     .Database("AnimalRegister")))
-            //     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<NHibernateHelper>())
-            //     .BuildSessionFactory();
             _sessionFactory = Fluently.Configure().Database(
                     MsSqlConfiguration.MsSql2008.ConnectionString("Data Source=DESKTOP-OGHSGCQ;Initial Catalog=AnimalRegister;Integrated Security=True"))
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<NHibernateHelper>())

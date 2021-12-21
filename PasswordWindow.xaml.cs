@@ -39,7 +39,7 @@ namespace AnimalRegister
                 return;
             }
                 
-            var mainWindow = new MainWindow();
+            var mainWindow = new MainWindow(result);
             Close();
             mainWindow.Show();
         }

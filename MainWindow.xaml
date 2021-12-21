@@ -103,8 +103,8 @@
                       ItemContainerStyle="{StaticResource ContactCard}"/>-->
 
             <StackPanel Grid.Row="1" Orientation="Vertical">
-                <Button Height="60" Content="Добавить" Click="Button_Click"/>
-                <Button Height="60" Content="Изменить реестр" Click="Button_Click_1"/>
+                <Button Name ="BtnAdd" Height="60" Content="Добавить" Click="Button_Click" Visibility="Visible"/>
+                <Button Name ="BtnChg" Height="60" Content="Изменить реестр" Click="Button_Click_1"/>
             </StackPanel>
             
             <StackPanel Grid.Row="2" 
@@ -118,11 +118,11 @@
                         Margin="18,0,0,0"/>
                 
                 <StackPanel VerticalAlignment="Center">
-                    <Label Content="ФИО"
+                    <Label Name="Name" Content="ФИО"
                            Foreground="White"
                            FontWeight="SemiBold"
                            Margin="0,-5,0,-5"/>
-                    <Label Content="Должность"
+                    <Label Name="Rights" Content="Должность"
                            Foreground="Gray"
                            FontWeight="SemiBold"
                            FontSize="10"

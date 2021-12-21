@@ -44,8 +44,8 @@ namespace AnimalRegister.MVVM.Model.Mappers
                 user.Id.ToString(),
                 user.Name, 
                 user.Login, 
-                user.Password
-                //user.RightsId.ToString(),
+                user.Password,
+                RightsName:user.RightsId.Name
                // user.OrganizationId.Id.ToString(),
                 //user.OrganizationId.Name
                 //user.OrganizationId.Address разве мы храним адрес?

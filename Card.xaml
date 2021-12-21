@@ -121,14 +121,14 @@
 
                         
                         <Border Grid.Column="0" Background="#FF4E5259" CornerRadius="8">
-                            <Button Content="Удалить"
+                            <Button x:Name="BtnDelete" Content="Удалить"
                                    Foreground="White"
                                    FontWeight="SemiBold"
                                    HorizontalAlignment="Center" Click="Button_Click_2"/>
                         </Border>
                         
                         <Border Grid.Column="2" Background="#FF62C23E" CornerRadius="8">
-                            <Button Style="{DynamicResource ButtonStyle1}" Grid.Column="2"
+                            <Button x:Name="BtnSave" Style="{DynamicResource ButtonStyle1}" Grid.Column="2"
                                    BorderThickness="0"
                                    Content="Сохранить"
                                    Background="#FF62C23E"

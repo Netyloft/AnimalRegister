@@ -1,4 +1,5 @@
-﻿using FluentNHibernate.Mapping;
+﻿using AnimalRegister.MVVM.Model.Filters;
+using FluentNHibernate.Mapping;
 
 namespace AnimalRegister.MVVM.Model
 {
@@ -22,6 +23,7 @@ namespace AnimalRegister.MVVM.Model
             Map(x => x.MCNumber).Column("MCNumber");
             References(x => x.MunicipalityId).Column("MunicipalityId").Fetch.Join();
             References(x => x.OrganizationId).Column("OrganizationId").Fetch.Join();
+            ApplyFilter<AnimalNameFilter>("Name = :Name");
             Table("AnimalCard");
         }
     }

@@ -11,13 +11,28 @@ namespace AnimalRegister
     public partial class MainWindow : Window
     {
         private readonly List<int> ids = new List<int>();
-
+        private bool isView;
+        
         private bool isAnimal = true;
 
-        public MainWindow()
+        public MainWindow(Dictionary<string, string> data)
         {
             InitializeComponent();
+            if (data["RightsName"].Equals("View"))
+            {
+                BtnAdd.Visibility = Visibility.Collapsed;
+                isView = true;
+            }
+                
+            LoadUser(data);
+            
             UpdateGrid();
+        }
+        
+        private void LoadUser(Dictionary<string, string> data)
+        {
+            Name.Content = data["Name"];
+            Rights.Content = data["RightsName"];
         }
 
         private void UpdateGrid()
@@ -33,7 +48,7 @@ namespace AnimalRegister
             ids.Clear();
             var data = new AnimalCardController().GetAllAnimalCards();
             var animals = new List<AnimalCardModel>();
-            foreach (var animalCardModel in data)
+             foreach (var animalCardModel in data)
             {
                 var animal = new AnimalCardModel()
                 {
@@ -101,7 +116,7 @@ namespace AnimalRegister
         {
             if (animalsGrid.SelectedIndex >= 0)
             {
-                var card = new Card(false, ids[animalsGrid.SelectedIndex]);
+                var card = new Card(false,isView, ids[animalsGrid.SelectedIndex]);
                 card.ShowDialog();
                 UpdateGrid();
             }
@@ -111,7 +126,7 @@ namespace AnimalRegister
         {
             if (scheduleGrid.SelectedIndex >= 0)
             {
-                var card = new ScheduleCardCard(false, ids[scheduleGrid.SelectedIndex]);
+                var card = new ScheduleCardCard(false,isView, ids[scheduleGrid.SelectedIndex]);
                 card.ShowDialog();
                 UpdateGrid();
             }
@@ -121,13 +136,13 @@ namespace AnimalRegister
         {
             if (isAnimal)
             {
-                var card = new Card(true);
+                var card = new Card(true,isView);
                 card.ShowDialog();
                 UpdateGrid();
             }
             else
             {
-                var card = new ScheduleCardCard(true);
+                var card = new ScheduleCardCard(true,isView);
                 card.ShowDialog();
                 UpdateGrid();
             }

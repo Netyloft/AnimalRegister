@@ -17,10 +17,15 @@ namespace AnimalRegister.MVVM.Model.Controllers
                 return isValid;
             
             var user = LoginMapper.GetUser(data);
-
             user = _service.Login(user);
+            
+            if (user.Id != 0)
+            {
+                var authorizedUser = new AuthorizedUser(user);
+                return LoginMapper.GetResult(user);
+            }
 
-            return LoginMapper.GetResult(user);
+            return isValid;
         }
     }
 }
