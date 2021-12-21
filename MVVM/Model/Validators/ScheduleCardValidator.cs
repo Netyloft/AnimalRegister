@@ -8,6 +8,20 @@ namespace AnimalRegister.MVVM.Model.Validators
     {
         public static Dictionary<string, string> Validate(Dictionary<string, string> data)
         {
+            if (data["District"].Trim().Equals(""))
+            {
+                data["validationStatus"] = "INVALID";
+                data["message"] = "Поле Район не заполнено";
+                return data;
+            }
+
+            if (data["Locality"].Trim().Equals(""))
+            {
+                data["validationStatus"] = "INVALID";
+                data["message"] = "Поле Город не заполнено";
+                return data;
+            }
+
             try
             {
                 int.Parse(data["Organization.Id"]);

@@ -8,6 +8,34 @@ namespace AnimalRegister.MVVM.Model.Validators
     {
         public static Dictionary<string, string> Validate(Dictionary<string, string> data)
         {
+            if (data["Name"].Trim().Equals(""))
+            {
+                data["validationStatus"] = "INVALID";
+                data["message"] = "Поле Имя не заполнено";
+                return data;
+            }
+
+            if(data["Size"].Trim().Equals(""))
+            {
+                data["validationStatus"] = "INVALID";
+                data["message"] = "Поле Размер не заполнено";
+                return data;
+            }
+
+            if (data["TypeOfWool"].Trim().Equals(""))
+            {
+                data["validationStatus"] = "INVALID";
+                data["message"] = "Поле Шерсть не заполнено";
+                return data;
+            }
+
+            if (data["Gender"].Trim().Equals(""))
+            {
+                data["validationStatus"] = "INVALID";
+                data["message"] = "Поле Пол не заполнено";
+                return data;
+            }
+
             try
             {
                 int.Parse(data["Organization.Id"]);
