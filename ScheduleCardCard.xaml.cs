@@ -67,7 +67,7 @@ namespace AnimalRegister
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var data = DataGenerator.GenerateScheduleDataModel(id.ToString(), Date.Text, District.Text, Locality.Text,
-                Status.Text, StatusDate.Text, "1", OrganizationName.Text, "1", null, LocalGovernment.Text);
+                Status.Text, StatusDate.Text, (OrganizationName.SelectedIndex+1).ToString(), OrganizationName.Text, (LocalGovernment.SelectedIndex+1).ToString(), null, LocalGovernment.Text);
 
             ScheduleCardController animalCardController = new ScheduleCardController();
             Dictionary<string, string> res;

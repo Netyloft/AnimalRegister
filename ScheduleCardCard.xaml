@@ -222,7 +222,11 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox x:Name="Status" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                            <ComboBox x:Name="Status" Margin="5" Background="#4e5259" Foreground="#4e5259" BorderBrush="#FF96A0B2" >
+                                <TextBlock>Отменён</TextBlock>
+                                <TextBlock>Выполнен</TextBlock>
+                                <TextBlock>Запланирован</TextBlock>
+                            </ComboBox>
                         </Border>
 
                     </Grid>
@@ -265,7 +269,10 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox x:Name="OrganizationName" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                            <ComboBox x:Name="OrganizationName" Margin="5" Background="#4e5259" Foreground="#4e5259" BorderBrush="#FF96A0B2" >
+                                <TextBlock>Организация1</TextBlock>
+                                <TextBlock>Организация2</TextBlock>
+                            </ComboBox>
                         </Border>
 
                     </Grid>
@@ -286,7 +293,10 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox x:Name="LocalGovernment" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                            <ComboBox x:Name="LocalGovernment" Margin="5" Background="#4e5259" Foreground="#4e5259" BorderBrush="#FF96A0B2" >
+                                <TextBlock>Тюменцы</TextBlock>
+                                <TextBlock>Курганцы</TextBlock>
+                            </ComboBox>
                         </Border>
 
                     </Grid>

@@ -286,7 +286,10 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox x:Name="Municipality" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                            <ComboBox x:Name="Municipality" Margin="5" Background="#4e5259" Foreground="#4e5259" BorderBrush="#FF96A0B2" SelectionChanged="Municipality_SelectionChanged" >
+                                <TextBlock>Тюмень</TextBlock>
+                                <TextBlock>Курган</TextBlock>
+                            </ComboBox>
                         </Border>
 
                     </Grid>
@@ -370,7 +373,10 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox x:Name="Organization" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                            <ComboBox x:Name="Organization" Margin="5" Background="#4e5259" Foreground="#4e5259" BorderBrush="#FF96A0B2" >
+                                <TextBlock>Организация1</TextBlock>
+                                <TextBlock>Организация2</TextBlock>
+                            </ComboBox>
                         </Border>
 
                     </Grid>
@@ -454,7 +460,11 @@
                         </Border>
 
                         <Border Grid.Column="1">
-                            <TextBox x:Name="Status" Margin="5" Background="#4e5259" Foreground="White" BorderBrush="#FF96A0B2" />
+                            <ComboBox x:Name="Status" Margin="5" Background="#4e5259" Foreground="#4e5259" BorderBrush="#FF96A0B2" >
+                                <TextBlock>Готовится к отправке в приют</TextBlock>
+                                <TextBlock>Передано в приют</TextBlock>
+                                <TextBlock>Выбыло</TextBlock>
+                            </ComboBox>
                         </Border>
 
                     </Grid>

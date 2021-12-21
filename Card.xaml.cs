@@ -77,7 +77,7 @@ namespace AnimalRegister
         {
             var data = DataGenerator.GenerateAnimalDataModel(id.ToString(), Status.Text, Category.Text, Name.Text, Size.Text,
                 TypeOfWool.Text, Gender.Text, DateOfCatch.Text, Locality.Text,
-                StatusDate.Text, "1", Municipality.Text, LocalGovernment.Text, "1", Organization.Text, Executor.Text,
+                StatusDate.Text, (Municipality.SelectedIndex+1).ToString(), Municipality.Text, LocalGovernment.Text, (Organization.SelectedIndex+1).ToString(), Organization.Text, Executor.Text,
                 Conclusion.Text, Validity.Text, MK.Text);
 
 
@@ -122,6 +122,17 @@ namespace AnimalRegister
 
 
         private void CloseButtonClick(object sender, RoutedEventArgs e) => Close();
+
+        
+
+        private void Municipality_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var list = new List<string>();
+            list.Add("Тюменцы");
+            list.Add("Курганцы");
+
+            LocalGovernment.Text = list[Municipality.SelectedIndex];
+        }
 
         
     }
